@@ -1,0 +1,21 @@
+{
+    "name": "xyqweb/phalcon-form",
+    "description": "phalcon form",
+    "type": "library",
+    "require": {
+        "ext-phalcon": "^3.4.0"
+    },
+    "license": "BSD 3-Clause 'New' or 'Revised' License",
+    "authors": [
+        {
+            "name": "xyq",
+            "email": "xyq@weiyian.com"
+        }
+    ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "xyqWeb\\form\\": "src"
+    }
+  }
+}
