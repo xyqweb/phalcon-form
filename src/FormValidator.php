@@ -254,7 +254,6 @@ class FormValidator extends Validation
             $validatorMessageObject = new $validatorMessageName($rule, $attributeLabels, $validatorItem[1]);
             //注入验证规则到phalcon中
             $this->add($rule[0], new $validatorClassName($validatorMessageObject->getMessage()));
-            $this->setFilters((string)$rule[0], 'trim');
         }
     }
 
