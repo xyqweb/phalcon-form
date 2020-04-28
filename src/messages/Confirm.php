@@ -22,9 +22,9 @@ class Confirm extends ValidatorFactory
     {
         $message = [];
         foreach ($this->ruleItem[0] as $attribute) {
-            $message['message'][$attribute] = ($this->attributeLabels[$attribute] ?? '') . $this->validator['message'];
-            $message['with'][$attribute]    = $this->ruleItem[2] ?? '';
-            $message['message'][$attribute] = sprintf($message['message'][$attribute], ($this->attributeLabels[$message['with'][$attribute]] ?? ''));
+            $withColumns = $this->ruleItem['with'] ?? '';
+            $message['with'][$attribute] = $withColumns;
+            $message['message'][$attribute] = ($this->attributeLabels[$attribute] ?? '') . sprintf($this->validator['message'], $this->attributeLabels[$withColumns] ?? '');;
         }
         return $message;
     }
