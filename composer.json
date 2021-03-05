@@ -5,7 +5,7 @@
     "require": {
         "ext-phalcon": "^3.4.0"
     },
-    "license": "BSD 3-Clause 'New' or 'Revised' License",
+    "license": "BSD 3-Clause License",
     "authors": [
         {
             "name": "xyq",
