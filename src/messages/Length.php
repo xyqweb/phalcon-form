@@ -22,20 +22,21 @@ class Length extends ValidatorFactory
     {
         $message = [];
         foreach ($this->ruleItem[0] as $attribute) {
-            $message['message'][$attribute] = ($this->attributeLabels[$attribute]?? '') . $this->validator['message'];
+            $key = $this->attributeLabels[$attribute]?? '';
+            $message['message'][$attribute] = $key;
             //如果定义最大值则去最大值和最小值
             if (isset($this->ruleItem['max'])) {
                 $message['max'][$attribute]            = $this->ruleItem['max'];
                 $message['min'][$attribute]            = $this->ruleItem['min']?? 0;
-                $message['messageMaximum'][$attribute] = ($this->attributeLabels[$attribute]?? '') . sprintf($this->validator['messageMaximum'], $this->ruleItem['max']);
-                $message['messageMinimum'][$attribute] = ($this->attributeLabels[$attribute]?? '') . sprintf($this->validator['messageMinimum'], $this->ruleItem['min']);
+                $message['messageMaximum'][$attribute] = $key . sprintf($this->validator['messageMaximum'], $this->ruleItem['max']);
+                $message['messageMinimum'][$attribute] = $key . sprintf($this->validator['messageMinimum'], $this->ruleItem['min']);
             }
             //如果只定义一个值则取这个值做最大值和最小值
             if (isset($this->ruleItem[2])) {
                 $message['max'][$attribute]            = $this->ruleItem[2];
                 $message['min'][$attribute]            = $this->ruleItem[2];
-                $message['messageMaximum'][$attribute] = ($this->attributeLabels[$attribute]?? '') . sprintf('长度必须为%d位', $this->ruleItem[2]);
-                $message['messageMinimum'][$attribute] = ($this->attributeLabels[$attribute]?? '') . sprintf('长度必须为%d位', $this->ruleItem[2]);
+                $message['messageMaximum'][$attribute] = $key . sprintf('长度必须为%d位', $this->ruleItem[2]);
+                $message['messageMinimum'][$attribute] = $key . sprintf('长度必须为%d位', $this->ruleItem[2]);
             }
         }
         return $message;

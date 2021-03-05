@@ -22,16 +22,17 @@ class File extends ValidatorFactory
     {
         $message = [];
         foreach ($this->ruleItem[0] as $attribute) {
-            $message['message'][$attribute]     = ($this->attributeLabels[$attribute]?? '') . $this->validator['message'];
+            $key = $this->attributeLabels[$attribute]?? '';
+            $message['message'][$attribute]     = $key . $this->validator['message'];
             $message['maxSize'][$attribute]     = $this->ruleItem['maxSize']?? '20M';
-            $message['messageSize'][$attribute] = ($this->attributeLabels[$attribute]?? '') . $this->validator['messageSize'];
+            $message['messageSize'][$attribute] = $key . $this->validator['messageSize'];
             if (isset($this->ruleItem['allowed']) && is_array($this->ruleItem['allowed'])) {
                 $message['allowedTypes'][$attribute] = $this->ruleItem['allowed'];
-                $message['messageType'][$attribute]  = ($this->attributeLabels[$attribute]?? '') . $this->validator['messageType'];
+                $message['messageType'][$attribute]  = $key . $this->validator['messageType'];
             }
             if (isset($this->ruleItem['maxResolution'])) {
                 $message['maxResolution'][$attribute]        = $this->ruleItem['maxResolution'];
-                $message['messageMaxResolution'][$attribute] = ($this->attributeLabels[$attribute]?? '') . $this->validator['messageMaxResolution'];
+                $message['messageMaxResolution'][$attribute] = $key . $this->validator['messageMaxResolution'];
             }
         }
         return $message;
